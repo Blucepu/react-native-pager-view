@@ -125,6 +125,12 @@ class PagerViewViewManager : ViewGroupManager<NestedScrollableHost>() {
         PagerViewViewManagerImpl.setLayoutDirection(host, value)
     }
 
+    @ReactProp(name = "scrollSensitivity", defaultInt = 8)
+    fun setScrollSensitivity(host: NestedScrollableHost, value: Int) {
+        val view = PagerViewViewManagerImpl.getViewPager(host)
+        view.reduceDragSensitivity(value)
+    }
+
     override fun getExportedCustomDirectEventTypeConstants(): MutableMap<String, Map<String, String>> {
         return MapBuilder.of(
                 PageScrollEvent.EVENT_NAME, MapBuilder.of("registrationName", "onPageScroll"),

@@ -3,6 +3,7 @@ package com.reactnativepagerview
 import android.view.View
 import androidx.viewpager2.widget.ViewPager2
 import com.facebook.react.uimanager.PixelUtil
+import androidx.recyclerview.widget.RecyclerView
 
 object PagerViewViewManagerImpl {
     const val NAME = "RNCViewPager"
@@ -20,6 +21,16 @@ object PagerViewViewManagerImpl {
         view.setCurrentItem(selectedTab, scrollSmooth)
     }
 
+    fun ViewPager2.reduceDragSensitivity(value: Int) {
+        val recyclerViewField = ViewPager2::class.java.getDeclaredField("mRecyclerView")
+        recyclerViewField.isAccessible = true
+       val recyclerView = recyclerViewField.get(this) as RecyclerView
+       val touchSlopField = RecyclerView::class.java.getDeclaredField("mTouchSlop")
+       touchSlopField.isAccessible = true
+       val touchSlop = touchSlopField.get(recyclerView) as Int
+       touchSlopField.set(recyclerView, touchSlop*value)
+    }
+    
     fun addView(host: NestedScrollableHost, child: View?, index: Int) {
         if (child == null) {
             return
