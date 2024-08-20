@@ -42,13 +42,13 @@
     "ios",
     "android"
   ],
-  "repository": "https://github.com/callstack/react-native-pager-view",
+  "repository": "https://github.com/Blucepu/react-native-pager-view",
   "author": "troZee <hello@callstack.com> (https://github.com/callstack)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/callstack/react-native-pager-view/issues"
+    "url": "https://github.com/Blucepu/react-native-pager-view/issues"
   },
-  "homepage": "https://github.com/callstack/react-native-pager-view#readme",
+  "homepage": "https://github.com/Blucepu/react-native-pager-view#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
