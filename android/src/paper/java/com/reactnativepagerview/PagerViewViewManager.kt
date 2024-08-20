@@ -68,7 +68,7 @@ class PagerViewViewManager : ViewGroupManager<NestedScrollableHost>() {
         }
         host.addView(vp)
         val view = PagerViewViewManagerImpl.getViewPager(host)
-        view.reduceDragSensitivity(8)
+        view.reduceDragSensitivity(2)
         return host
     }
 
